@@ -20,11 +20,13 @@
 - name: git config email(depends on Git credential type in AAP)
   command: "git config --global user.email {{ git_email }}"
 
+- debug:
+    msg: "{{ lookup('env','GITHUB_CRED_FILE') }}"
+
 - name: Populate the Git credential store
   copy:
-    src: "{{ lookup('env','GITHUB_CRED_FILE') }}"
+    content: "{{ lookup('env','GITHUB_CRED_FILE') }}"
     dest: "{{ migrate_default_user_location }}/.git-credentials"
-  no_log: True
     
 - name: "Git repo: is it up-to-date?"
   git:
