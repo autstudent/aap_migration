@@ -25,7 +25,7 @@
 
 - name: Populate the Git credential store
   copy:
-    content: "{{ lookup('env','GITHUB_CRED_FILE') }}"
+    src: "{{ lookup('env','GITHUB_CRED_FILE') }}"
     dest: "{{ migrate_default_user_location }}/.git-credentials"
     
 - name: "Git repo: is it up-to-date?"
