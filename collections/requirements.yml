@@ -1,4 +1,2 @@
 collections:
 - name: ./ansible_refarch-aap2_migrate-1.0.0.tar.gz
-- source: /var/lib/awx/.ansible/collections/ansible_collections/ansible/controller
-  type: dir
